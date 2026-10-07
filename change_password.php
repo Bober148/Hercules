@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/csrf.php';
 
 session_start();
 
@@ -29,7 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $newpw   = $_POST["new_password"] ?? "";
   $confirm = $_POST["confirm_password"] ?? "";
 
-  if ($current === "" || $newpw === "" || $confirm === "") {
+  if (!csrf_valid()) {
+    $err = "Форма устарела, отправь её ещё раз.";
+  } elseif ($current === "" || $newpw === "" || $confirm === "") {
     $err = "Заполни все поля.";
   } elseif ($newpw !== $confirm) {
     $err = "Новые пароли не совпадают.";
@@ -121,6 +124,7 @@ $conn->close();
       <p class="muted">Роль: <?php echo htmlspecialchars($role); ?></p>
 
       <form method="POST" action="change_password.php">
+        <?php echo csrf_field(); ?>
         <label>
           Текущий пароль
           <input type="password" name="current_password" required>

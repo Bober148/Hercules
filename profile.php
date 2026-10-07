@@ -9,20 +9,33 @@ if (!isset($_SESSION["user_id"])) {
 
 $conn = db();
 
-$id = $_SESSION["user_id"];
+$id = (int)$_SESSION["user_id"];
+$isTeacher = ($_SESSION["role"] ?? "") === "teacher";
 
-$stmt = $conn->prepare("SELECT FirstName, Phone, PR FROM students WHERE StudentID = ?");
+// user_id — это TeacherID у учителя и StudentID у ученика: ищем в своей таблице
+if ($isTeacher) {
+    $stmt = $conn->prepare("SELECT FirstName, Phone_Number AS Phone, NULL AS PR FROM teachers WHERE TeacherID = ?");
+} else {
+    $stmt = $conn->prepare("SELECT FirstName, Phone, PR FROM students WHERE StudentID = ?");
+}
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-$name = $user["FirstName"];
-$phone = $user["Phone"];
-$pr = $user["PR"];
-
 $stmt->close();
 $conn->close();
+
+if (!$user) {
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit;
+}
+
+$name = $user["FirstName"];
+$phone = $user["Phone"] ?? "";
+$pr = $user["PR"];
 ?>
 
 
@@ -63,7 +76,7 @@ $conn->close();
       <div class="avatar">👤</div>
       <h2 class="name"><?php echo htmlspecialchars($name); ?></h2>
 
-      <p class="role">Участник клуба Hercules</p>
+      <p class="role"><?php echo $isTeacher ? "Учитель клуба Hercules" : "Участник клуба Hercules"; ?></p>
 
 <div class="info">
   <div class="info-row">
@@ -71,9 +84,12 @@ $conn->close();
     <strong> <?php echo htmlspecialchars($phone); ?> </strong>
   </div>
 
+  <?php if (!$isTeacher): ?>
   <div class="info-row">
     <span>Личный рекорд (PR)</span>
     <strong> <?php echo htmlspecialchars($pr); ?> кг </strong>
+  </div>
+  <?php endif; ?>
 </div>
 
     </section>

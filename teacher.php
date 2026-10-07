@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/csrf.php';
 session_start();
 if (($_SESSION['role'] ?? '') !== 'teacher') {
     header('Location: teacherlogin.html');
@@ -64,6 +65,7 @@ elseif (isset($_GET['error'])) { $notice = htmlspecialchars($_GET['error']); }
           <div class="note"><?php echo $notice; ?></div>
         <?php endif; ?>
         <form class="form" method="post" action="create_schedule.php">
+          <?php echo csrf_field(); ?>
           <label>
             Ученик
             <select name="student_id" required>

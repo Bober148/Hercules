@@ -1,9 +1,14 @@
 <?php
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/csrf.php';
 session_start();
 
 if (($_SESSION['role'] ?? '') !== 'teacher') { header('Location: teacherlogin.html'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')   { header('Location: teacher.php');       exit; }
+if (!csrf_valid()) {
+    header('Location: teacher.php?error=' . urlencode('Форма устарела, отправь её ещё раз.'));
+    exit;
+}
 
 $teacher_id = (int)($_SESSION['user_id'] ?? 0);
 $student_id = (int)($_POST['student_id'] ?? 0);
