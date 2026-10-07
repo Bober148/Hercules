@@ -1,0 +1,15 @@
+# Локальные настройки (код приглашения учителей и т.п.)
+config.php
+
+# Дампы базы с реальными данными учеников
+*.sql
+!schema.sql
+!migrations/*.sql
+
+# Логи и служебные файлы
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
