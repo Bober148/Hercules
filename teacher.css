@@ -1,0 +1,279 @@
+*{
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#f4f6f8;
+  color:#111;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* ===== NAVBAR (same links) ===== */
+.topbar{
+  background: rgba(17,17,17,.95);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.topbar__inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.brand__mark{
+  width:34px;
+  height:34px;
+  background:#fff;
+  color:#111;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+}
+
+.brand__name{
+  font-size:16px;
+  font-weight:700;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.8;
+}
+
+.nav a:hover{ opacity:1; }
+
+/* ===== PAGE ===== */
+.page{ padding:40px 0; }
+
+.head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.muted{
+  color:#667085;
+  font-size:14px;
+}
+
+.small{ font-size:13px; }
+
+.head__actions{ display:flex; gap:10px; }
+
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:18px;
+}
+
+/* ===== CARDS ===== */
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.h2{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.note{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:#f7f8fb;
+  border:1px solid #e6e9ee;
+  color:#444;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* ===== FORM ===== */
+.form{
+  margin-top:12px;
+  display:grid;
+  gap:14px;
+}
+
+label{
+  display:grid;
+  gap:6px;
+  font-size:14px;
+}
+
+input, textarea, select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #d7dde6;
+  background:#fff;
+  font-size:14px;
+  outline:none;
+}
+
+input:focus, textarea:focus, select:focus{
+  border-color:#111;
+}
+
+textarea{ resize: vertical; }
+
+.row2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+
+/* ===== Attendance ===== */
+.att-list{
+  margin:12px 0 14px;
+  display:grid;
+  gap:10px;
+}
+
+.att-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid #eef1f5;
+  border-radius:12px;
+  background:#fff;
+}
+
+.chk{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.chk input{
+  width:18px;
+  height:18px;
+}
+
+.chk__name{
+  font-weight:700;
+  font-size:14px;
+}
+
+/* ===== Table ===== */
+.table-card{ margin-top:18px; }
+
+.table-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.table-wrap{
+  overflow:auto;
+  border:1px solid #eef1f5;
+  border-radius:12px;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:720px;
+  background:#fff;
+}
+
+th, td{
+  padding:12px;
+  border-bottom:1px solid #eef1f5;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f7f8fb;
+  font-weight:700;
+}
+
+.pill{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#f0f2f5;
+  border:1px solid #e6e9ee;
+  font-size:12px;
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px solid transparent;
+  text-decoration:none;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.btn--primary{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.btn--light{
+  background:#fff;
+  color:#111;
+  border-color:#d7dde6;
+}
+
+.btn--full{ width:100%; }
+
+/* ===== Footer ===== */
+.footer{
+  background:#111;
+  color:#fff;
+  padding:16px 0;
+  margin-top:40px;
+  text-align:center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .grid{ grid-template-columns:1fr; }
+  .head{ flex-direction:column; align-items:flex-start; }
+  .row2{ grid-template-columns:1fr; }
+}

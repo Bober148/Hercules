@@ -1,0 +1,260 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f4f6f8;
+  color:#111;
+}
+
+.container{
+  width:90%;
+  max-width:900px;
+  margin:auto;
+}
+
+/* NAVBAR */
+.topbar{
+  background: rgba(17,17,17,.95);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.topbar__inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.brand__mark{
+  width:34px;
+  height:34px;
+  background:#fff;
+  color:#111;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+}
+
+.nav{
+  display:flex;
+  gap:18px;
+}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.8;
+}
+
+.nav a:hover{ opacity:1; }
+
+/* PAGE */
+.page{
+  padding:60px 0;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.login-card{
+  max-width:420px;
+  margin:auto;
+  text-align:center;
+}
+
+h1{
+  margin-bottom:6px;
+}
+
+.muted{
+  color:#666;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+/* ROLE SELECT */
+.role-select{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-bottom:18px;
+}
+
+.role{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid #d7dde6;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.role input{
+  accent-color:#111;
+}
+
+/* FORM */
+.form{
+  display:grid;
+  gap:14px;
+}
+
+label{
+  display:grid;
+  gap:6px;
+  font-size:14px;
+  text-align:left;
+}
+
+input{
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #d7dde6;
+  font-size:14px;
+}
+
+input:focus{
+  outline:none;
+  border-color:#111;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid transparent;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.btn--primary{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.btn--full{
+  width:100%;
+}
+
+/* NOTE */
+.note{
+  margin-top:16px;
+  padding:12px;
+  background:#f7f8fb;
+  border:1px solid #e6e9ee;
+  border-radius:12px;
+  font-size:13px;
+  color:#444;
+  text-align:left;
+}
+
+.note ul{
+  padding-left:18px;
+  margin-top:6px;
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:16px 0;
+  margin-top:40px;
+}
+
+:root{
+  --bg: #f4f6f8;
+  --text: #111;
+  --muted: #666;
+
+  --card: #ffffff;
+  --border: #e6e9ee;
+
+  --nav-bg: rgba(17,17,17,.95);
+  --nav-text: #ffffff;
+
+  --btn-bg: #111;
+  --btn-text: #fff;
+
+  --input-bg: #fff;
+  --input-text: #111;
+  --input-border: #d7dde6;
+}
+
+[data-theme="dark"]{
+  --bg: #0b0f14;
+  --text: #e8eef6;
+  --muted: #9aa7b7;
+
+  --card: #101826;
+  --border: #1d2a3a;
+
+  --nav-bg: rgba(10,14,20,.95);
+  --nav-text: #e8eef6;
+
+  --btn-bg: #e8eef6;
+  --btn-text: #0b0f14;
+
+  --input-bg: #0f1724;
+  --input-text: #e8eef6;
+  --input-border: #25354a;
+}
+
+/* Привязка твоих элементов к переменным */
+body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.muted, .subtitle{
+  color: var(--muted);
+}
+
+.topbar{
+  background: var(--nav-bg);
+}
+
+.nav a, .brand{
+  color: var(--nav-text);
+}
+
+input, select, textarea{
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+}
+
+.btn, button{
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-bg);
+}

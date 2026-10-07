@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация учителя | Hercules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="teacherreg.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="main.php">
+        <span class="brand__mark">H</span>
+        <span class="brand__name">Hercules</span>
+      </a>
+      <nav class="nav">
+        <a href="main.php">Главная</a>
+        <a href="profile.php">Профиль</a>
+        <a href="schedule.php">Расписание</a>
+        <a href="teacher.php">Панель учителя</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="card">
+
+      <div class="badge">👨‍🏫 Учитель</div>
+      <h1>Регистрация учителя</h1>
+      <p class="subtitle">Школьный фитнес-клуб Hercules</p>
+
+      <form action="teacherreg.php" method="POST" class="form">
+
+        <div class="form-row">
+          <label>
+            Имя
+            <input type="text" name="fname" placeholder="Sigma" required>
+          </label>
+          <label>
+            Фамилия
+            <input type="text" name="lname" placeholder="Erdigma" required>
+          </label>
+        </div>
+      
+        <label>
+          Телефон
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" placeholder="teacher@school.ru" required>
+        </label>
+
+        <label>
+          Пароль
+          <input type="password" name="password" required minlength="8">
+          <span class="hint">Минимум 8 символов</span>
+        </label>
+
+        <label>
+          Повторите пароль
+          <input type="password" name="confirm_password" required minlength="8">
+        </label>
+
+        <div id="pw-error" class="error"></div>
+
+        <button type="submit" class="btn">Зарегистрироваться как учитель</button>
+
+      </form>
+
+      <div class="divider">или</div>
+      <a class="secondary" href="login.html">Уже есть аккаунт?</a>
+      <a class="secondary secondary--outline" href="registration.html">Зарегистрироваться как ученик</a>
+
+      <a class="back" href="main.php">← Вернуться на главную</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('.form');
+    form.addEventListener('submit', function(e) {
+      const pw  = form.password.value;
+      const cpw = form.confirm_password.value;
+      const err = document.getElementById('pw-error');
+      if (pw !== cpw) {
+        e.preventDefault();
+        err.textContent = 'Пароли не совпадают.';
+      } else {
+        err.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

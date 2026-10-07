@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+}
+
+/* ── Topbar ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(17,17,17,.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+.brand__name { font-size: 16px; font-weight: 700; }
+.nav { display: flex; gap: 20px; }
+.nav a { color: #fff; text-decoration: none; font-size: 14px; opacity: .85; }
+.nav a:hover { opacity: 1; }
+
+/* ── Page layout ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 20px;
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 32px 28px;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.09);
+}
+
+/* teacher accent strip at top */
+.card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #1a73e8 0%, #0d47a1 100%);
+  border-radius: 8px 8px 0 0;
+  margin: -36px -32px 24px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  text-align: center;
+  color: #111;
+}
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* ── Form ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26,115,232,.15);
+}
+
+.hint {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.error {
+  color: #c62828;
+  font-size: 13px;
+  min-height: 18px;
+  margin-bottom: 8px;
+}
+
+/* ── Button ── */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+}
+.btn:hover { background: #1558b0; }
+.btn:active { transform: scale(.99); }
+
+/* ── Divider & links ── */
+.divider {
+  text-align: center;
+  margin: 16px 0 12px;
+  font-size: 12px;
+  color: #999;
+  position: relative;
+}
+.divider::before, .divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 42%;
+  height: 1px;
+  background: #e5e7eb;
+}
+.divider::before { left: 0; }
+.divider::after  { right: 0; }
+
+.secondary {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  color: #111;
+  border: 1px solid #ddd;
+  padding: 9px;
+  border-radius: 7px;
+  transition: background .15s ease;
+  margin-bottom: 8px;
+}
+.secondary:hover { background: #f4f6f8; }
+.secondary--outline { color: #1a73e8; border-color: #c5d8fb; }
+.secondary--outline:hover { background: #e8f0fe; }
+
+.back {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  text-decoration: none;
+  color: #888;
+  font-size: 13px;
+  transition: color .15s;
+}
+.back:hover { color: #333; }
+
+@media (max-width: 520px) {
+  .card { padding: 28px 20px 22px; }
+  .card::before { margin: -28px -20px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav { gap: 12px; }
+}

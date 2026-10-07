@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f6f8;
+  color: #111;
+}
+
+/* ===== NAVBAR ===== */
+.topbar {
+  background: rgba(17,17,17,.95);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.topbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  background: #fff;
+  color: #111;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: .8;
+}
+
+.nav a.active,
+.nav a:hover {
+  opacity: 1;
+}
+
+/* ===== PAGE ===== */
+.page {
+  padding: 40px 0;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+}
+
+/* ===== LEFT CARD ===== */
+.profile-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  background: #eaeaea;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.name {
+  margin-bottom: 4px;
+}
+
+.role {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.info {
+  text-align: left;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* ===== RIGHT CONTENT ===== */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.block {
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.block h3 {
+  margin-bottom: 14px;
+}
+
+/* PR */
+.pr-list {
+  list-style: none;
+}
+
+.pr-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Attendance */
+.attendance {
+  display: flex;
+  gap: 20px;
+}
+
+.att-box {
+  flex: 1;
+  background: #f0f2f5;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+
+.att-box strong {
+  font-size: 28px;
+  display: block;
+}
+
+.att-box span {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Status */
+.status {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 16px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .profile {
+    grid-template-columns: 1fr;
+  }
+}
+
+:root{
+  --bg: #f4f6f8;
+  --text: #111;
+  --muted: #666;
+
+  --card: #ffffff;
+  --border: #e6e9ee;
+
+  --nav-bg: rgba(17,17,17,.95);
+  --nav-text: #ffffff;
+
+  --btn-bg: #111;
+  --btn-text: #fff;
+
+  --input-bg: #fff;
+  --input-text: #111;
+  --input-border: #d7dde6;
+}
+
+[data-theme="dark"]{
+  --bg: #0b0f14;
+  --text: #e8eef6;
+  --muted: #9aa7b7;
+
+  --card: #101826;
+  --border: #1d2a3a;
+
+  --nav-bg: rgba(10,14,20,.95);
+  --nav-text: #e8eef6;
+
+  --btn-bg: #e8eef6;
+  --btn-text: #0b0f14;
+
+  --input-bg: #0f1724;
+  --input-text: #e8eef6;
+  --input-border: #25354a;
+}
+
+/* Привязка твоих элементов к переменным */
+body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.muted, .subtitle{
+  color: var(--muted);
+}
+
+.topbar{
+  background: var(--nav-bg);
+}
+
+.nav a, .brand{
+  color: var(--nav-text);
+}
+
+input, select, textarea{
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+}
+
+.btn, button{
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-bg);
+}
+[data-theme="dark"]{
+  --bg: #12161c;
+  --text: #e4e9f09f;
+  --muted: #9aa6b2;
+
+  --card: #1a212a;
+  --border: #2a3440;
+
+  --nav-bg: #161d25;
+  --nav-text: #e4e9f0;
+
+  --btn-bg: #2a3440;
+  --btn-text: #e4e9f0;
+
+  /* Изменения здесь */
+  --input-bg: #0f141a;      /* Сделали заметно темнее (был #1f2730) */
+  --input-text: #ffffff33;    /* Сделали чистым белым для максимальной яркости */
+  --input-border: #2d3947;
+}

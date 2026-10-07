@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration | Hercules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reg.css">
+</head>
+<body>
+
+  <header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="main.php">
+      <span class="brand__mark">H</span>
+      <span class="brand__name">Hercules</span>
+    </a>
+    <nav class="nav">
+      <a href="main.php">Главная</a>
+      <a href="schedule.php">Расписание</a>
+    </nav>
+  </div>
+  </header>
+
+  <div class="page">
+    <div class="card">
+      <h1>Регистрация</h1>
+      <p class="subtitle">Школьный фитнес-клуб Hercules</p>
+
+      <form action="register.php" method="POST" class="form">
+
+        <label>
+          Имя
+          <input type="text" name="fname" required>
+        </label>
+
+        <label>
+          Телефон
+          <input type="text" name="phone" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          Пароль
+          <input type="password" name="password" required minlength="8">
+        </label>
+
+        <label>
+          Повторите пароль
+          <input type="password" name="confirm_password" required minlength="8">
+        </label>
+
+        <button type="submit" class="btn btn--primary btn--full">
+          Зарегистрироваться
+        </button>
+
+      </form>
+
+      <div class="divider">или</div>
+
+   
+      <a class="secondary teacher-link" href="teacherreg.html">
+        👨‍🏫 Я учитель — зарегистрироваться как учитель
+      </a>
+
+      <a class="secondary" href="login.html">Уже есть аккаунт?</a>
+
+      <a class="back" href="main.php">← Вернуться на главную</a>
+    </div>
+  </div>
+
+</body>
+</html>
